@@ -2,10 +2,8 @@ package com.v_scorpion.test_case_renta_team.Network;
 
 import android.util.Log;
 
-import com.v_scorpion.test_case_renta_team.Fragment_info_about_users;
-import com.v_scorpion.test_case_renta_team.PojoUsers;
-
-import java.util.ArrayList;
+import com.v_scorpion.test_case_renta_team.Fragment_List_Users;
+import com.v_scorpion.test_case_renta_team.Pojo_Class.PojoRequest;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,7 +22,7 @@ public class Network_Service_Api {
 
     private Network_Service_Api() {
         mRetrofit = new Retrofit.Builder()
-                .baseUrl("")
+                .baseUrl("https://reqres.in/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
     }
@@ -37,19 +35,19 @@ public class Network_Service_Api {
         return mInstance;
     }
 
-    public void getUsersInfo ( Fragment_info_about_users context){
+    public void getUsersInfo ( Fragment_List_Users context){
         API_Interface api = mRetrofit.create(API_Interface.class);
-        Call<ArrayList<PojoUsers>> call  = api.getUsers();
+        Call<PojoRequest> call  = api.getUsers();
 
-        call.enqueue(new Callback<ArrayList<PojoUsers>>() {
+        call.enqueue(new Callback<PojoRequest>() {
             @Override
-            public void onResponse(Call<ArrayList<PojoUsers>> call, Response<ArrayList<PojoUsers>> response) {
+            public void onResponse(Call<PojoRequest> call, Response<PojoRequest> response) {
 
                 try {
                     if (response.isSuccessful()) {
                         String sd1 = response.body().toString();
                         //передача данных обратно в класс для их обработки
-                        context.getUserInfo(response.body());
+                        context.getUserInfo(response.body().getData());
                     }
                 }catch (Exception exception){
                     Log.e("TAG", "onResponse: " + exception.getMessage());
@@ -58,7 +56,9 @@ public class Network_Service_Api {
             }
 
             @Override
-            public void onFailure(Call<ArrayList<PojoUsers>> call, Throwable t) {
+            public void onFailure(Call<PojoRequest> call, Throwable t) {
+                Log.v("onFailure", "error " + t);
+                Log.e("ERROR: ", t.getMessage());
 
             }
         });

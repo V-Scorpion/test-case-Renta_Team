@@ -1,4 +1,4 @@
-package com.v_scorpion.test_case_renta_team;
+package com.v_scorpion.test_case_renta_team.Pojo_Class;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

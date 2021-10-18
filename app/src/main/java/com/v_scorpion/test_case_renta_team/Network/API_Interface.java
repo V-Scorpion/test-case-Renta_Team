@@ -1,6 +1,7 @@
 package com.v_scorpion.test_case_renta_team.Network;
 
-import com.v_scorpion.test_case_renta_team.PojoUsers;
+import com.v_scorpion.test_case_renta_team.Pojo_Class.PojoRequest;
+import com.v_scorpion.test_case_renta_team.Pojo_Class.PojoUsers;
 
 import java.util.ArrayList;
 
@@ -12,6 +13,6 @@ import retrofit2.http.GET;
  */
 public interface API_Interface {
 
-    @GET("https://reqres.in/api/users")
-    public Call<ArrayList<PojoUsers>> getUsers();
+    @GET("api/users")
+    public Call<PojoRequest> getUsers();
 }

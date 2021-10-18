@@ -5,6 +5,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.TextView;
+
+import com.v_scorpion.test_case_renta_team.Pojo_Class.PojoUsers;
 
 import java.util.List;
 
@@ -41,6 +44,12 @@ public class Custom_Adapter_Users_Info extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(mContext).inflate(R.layout.item_user_info, null);
         }
+
+        TextView tv_famil = view.findViewById(R.id.textView);
+        TextView tv_name = view.findViewById(R.id.textView2);
+
+        tv_famil.setText(users.get(position).getLastName());
+        tv_name.setText(users.get(position).getFirstName());
         return view;
     }
 }
