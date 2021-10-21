@@ -69,7 +69,7 @@ public class Fragment_List_Users extends Fragment {
 
     public void onErrors(String s) {
 
-        Toast.makeText(getContext(), s, Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "Не удалось получить данные с сервера ", Toast.LENGTH_SHORT).show();
 
         MainActivity.DBHelper.getUsersDAO().getAllUsers()
 

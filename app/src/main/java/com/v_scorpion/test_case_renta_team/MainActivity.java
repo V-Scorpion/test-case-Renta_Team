@@ -3,6 +3,7 @@ package com.v_scorpion.test_case_renta_team;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.room.Room;
 
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 
 import com.v_scorpion.test_case_renta_team.DataBase.DataBaseHelper;
@@ -16,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
         new Thread(() -> {
             try {
