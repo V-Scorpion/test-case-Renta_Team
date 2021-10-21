@@ -42,6 +42,13 @@ public class PojoUsers {
         return firstName;
     }
 
+    public PojoUsers(String lastName, String firstName,  String email, String avatar) {
+        this.email = email;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.avatar = avatar;
+    }
+
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }

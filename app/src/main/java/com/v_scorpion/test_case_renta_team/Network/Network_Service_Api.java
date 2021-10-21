@@ -59,6 +59,8 @@ public class Network_Service_Api {
             public void onFailure(Call<PojoRequest> call, Throwable t) {
                 Log.v("onFailure", "error " + t);
                 Log.e("ERROR: ", t.getMessage());
+                context.onErrors(t.getMessage());
+
 
             }
         });

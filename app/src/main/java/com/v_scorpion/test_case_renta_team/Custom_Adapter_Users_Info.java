@@ -24,6 +24,7 @@ public class Custom_Adapter_Users_Info extends BaseAdapter {
         this.users = users;
     }
 
+
     @Override
     public int getCount() {
         return users.size();
